@@ -1,5 +1,7 @@
 package com.tewinsid.demo.model;
 
+import java.util.UUID;
+
 public class User {
     private String id;
     private String password;
@@ -10,6 +12,9 @@ public class User {
     private String phone;
 
     public String getId() {
+        if (this.id == null || "".equals(this.id)) {
+            this.id = UUID.randomUUID().toString();
+        }
         return id;
     }
 
