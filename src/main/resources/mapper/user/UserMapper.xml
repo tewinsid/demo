@@ -2,6 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.tewinsid.demo.dao.UserMapper">
     <insert id="insert" parameterType="com.tewinsid.demo.model.User">
-        insert into user(id, password, name) values(#{id}, #{passworld}, #{name})
+        insert into user(id, password, name) values(#{id}, #{password}, #{name})
     </insert>
+
+    <select id="getAll" resultType="com.tewinsid.demo.model.User">
+        select * from user
+    </select>
+
+    <select id="getUserById" parameterType="String" resultType="com.tewinsid.demo.model.User">
+        select * from user where id = #{id}
+    </select>
 </mapper>

@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController()
 @RequestMapping("/user")
 public class UserController {
@@ -15,6 +17,17 @@ public class UserController {
         System.out.println("---------tewinsid----------值=" + user.getName() + "," + "当前类=UserController.addUser()");
         userService.addUser(user);
         return user;
+    }
+
+    @RequestMapping("/get")
+    public List<User> getUserAll() {
+        return userService.getUserAll();
+    }
+
+    @RequestMapping("/fetch")
+    public User fetch(String id) {
+        System.out.println(id);
+        return userService.getUserById(id);
     }
 
     @Autowired

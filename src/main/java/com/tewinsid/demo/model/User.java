@@ -1,8 +1,11 @@
 package com.tewinsid.demo.model;
 
+import java.io.Serializable;
 import java.util.UUID;
 
-public class User {
+public class User implements Serializable {
+
+    private static final long serialVersionUID = -1L;
     private String id;
     private String password;
     private String name;
@@ -13,7 +16,7 @@ public class User {
 
     public String getId() {
         if (this.id == null || "".equals(this.id)) {
-            this.id = UUID.randomUUID().toString();
+            this.id = UUID.randomUUID().toString().replaceAll("-", "");
         }
         return id;
     }
