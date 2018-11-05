@@ -18,7 +18,8 @@ public class HeapSort {
     public void sort() {
         int len = heap.length - 1;
         //從第一個非葉子節點開始
-        int begainIndex = (len + 1) / 2;
+        //此處 鍵號是爲了規避下標與序號差1
+        int begainIndex = (len - 1) / 2;
         //從第一個葉子節點開始構建最大堆，並遞歸向上
         for (int i = begainIndex; i >= 0; i--) {
             maxHeapify(i, len);
